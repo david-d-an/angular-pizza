@@ -1,0 +1,76 @@
+<div class="row">
+  <div class="m-t-1">
+  	<button class="btn btn-primary" (click)="doGET()">GET</button>
+  	<button class="btn btn-primary" (click)="doPOST()">POST</button>
+  	<button class="btn btn-primary" (click)="doPUT()">PUT</button>
+  	<button class="btn btn-primary" (click)="doDELETE()">DELETE</button>
+	</div>
+</div>
+
+<div class="row" [hidden]="false">
+  <div class="m-t-1">
+  	<button class="btn btn-secondary" (click)="doGETAsPromise()">As Promise</button>
+  	<button class="btn btn-secondary" (click)="doGETAsPromiseError()">Error as Promise</button>
+  	<button class="btn btn-secondary" (click)="doGETAsObservableError()">Error as Observable</button>
+	</div>
+</div>
+
+<div class="row" [hidden]="false">
+  <div class="m-t-1">
+  	<button class="btn btn-danger" (click)="doGETWithHeaders()">With Headers</button>
+	</div>
+</div>
+
+<!--
+<div>{{ (staticresponse$ | async | json) }}</div>
+<div *ngIf="(staticresponse$ | async | json)">
+  <div class="user" *ngFor="let article of (staticresponse$ | async | json).articles">
+    1
+  </div>
+</div>
+-->
+
+
+<br/>
+<hr/>
+
+<div class="row">
+  Name: <input type="text" id="tbName" class="textbox-name" />
+</div>
+<div class="row">
+  <span>Your name is: {{ name | titlecase }}</span>
+</div>
+<hr/>
+
+<div class="row">
+  <div *ngFor="let article of jsonArticles">
+    <div class="row">
+      <div class="col-lg-1">
+        Title:
+      </div>
+      <div class="col-lg-5">
+        {{ article.title }}
+      </div>
+      <div class="col-lg-1">
+        Author:
+      </div>
+      <div class="col-lg-5">
+        {{article.author}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-1">
+        URL:
+      </div>
+      <div class="col-lg-11">
+        <a href='{{ article.url }}'>{{ article.url }}</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        {{ article.description }}
+      </div>
+    </div>
+    <hr/>
+  </div>
+</div>
